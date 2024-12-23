@@ -163,12 +163,12 @@
                 <div class="stats-card p-8 rounded-lg text-center">
                     <h3 class="text-xl font-bold mb-4">Usuários Ativos</h3>
                     <div class="text-4xl font-bold mb-2"><span id="users-counter">0</span></div>
-                    <p class="text-gray-100">profissionais utilizando a plataforma</p>
+                    <p class="text-gray-100"></p>
                 </div>
                 <div class="stats-card p-8 rounded-lg text-center">
                     <h3 class="text-xl font-bold mb-4">Satisfação</h3>
                     <div class="text-4xl font-bold mb-2"><span id="satisfaction-counter">0</span>%</div>
-                    <p class="text-gray-100">de clientes satisfeitos</p>
+                    <p class="text-gray-100"></p>
                 </div>
             </div>
         </div>
@@ -232,19 +232,19 @@
     <div class="max-w-7xl mx-auto px-8 text-center">
         <h2 class="text-4xl font-bold mb-8">Investimento</h2>
         <div class="feature-card p-8 rounded-lg max-w-md mx-auto">
-            <div class="text-5xl font-bold mb-4">R$297</div>
-            <p class="text-xl text-gray-100 mb-6">Acesso completo à plataforma</p>
+            <div class="text-5xl font-bold mb-4">R$351 Anual</div>
+            <p class="text-xl text-gray-100 mb-6">3 Meses gratís!</p>
             <button id="subscribeBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg text-lg mb-6 transform transition-transform hover:-translate-y-1">
                 Assinar Agora 🚀
             </button>
             <div id="paymentInfo" class="max-h-0 overflow-hidden transition-all duration-500">
                 <div class="flex justify-center mb-4">
-                    <img src="https://i.postimg.cc/6qc3WZ6P/qrcode-pix-1.png" alt="QR Code PIX" class="w-48 h-48">
+                    <img src="https://i.postimg.cc/mDFzCg37/qrcode-pix-2.png">
                 </div>
                 <div class="bg-white bg-opacity-10 p-4 rounded-lg mt-4">
                     <p class="text-sm mb-2">Chave PIX:</p>
                     <div class="flex items-center justify-center gap-2">
-                        <input type="text" id="pixKey" value="00020126330014BR.GOV.BCB.PIX0111044091452315204000053039865406297.005802BR5901N6001C62190515CEOOctopusSuite630473A5" class="bg-white bg-opacity-20 text-white px-4 py-2 rounded-lg flex-1" readonly>
+                        <input type="text" id="pixKey" value="00020126580014BR.GOV.BCB.PIX0136c15480dc-2384-4438-9ed3-76878f6ad36d5204000053039865406351.005802BR5925Luis Gustavo Correia Frei6009SAO PAULO62140510m8nUFjogyd6304129C" class="bg-white bg-opacity-20 text-white px-4 py-2 rounded-lg flex-1" readonly>
                         <button id="copyBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition-colors">
                             Copiar
                         </button>
@@ -284,7 +284,120 @@
 </html>
 <div class="bg-white bg-opacity-10 p-4 rounded-lg mt-4">
     <p class="text-lg text-gray-100 mb-4">
-        Após realizar o pagamento, envie o comprovante para o e-mail: 
-        <strong>suiteoctopus@gmail.com. Assim enviaremos o acesso da plataforma com o login</strong>.
+        Após realizar o pagamento, Liberamos o acesso pelo Chatbot ao lado
+        <strong> </strong>.
     </p>
-  
+<body>
+    <!-- Chatbot -->
+    <div id="chatbot-container" style="
+        position: fixed; 
+        bottom: 20px; 
+        right: 20px; 
+        z-index: 1000; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        cursor: pointer;">
+        
+        <!-- Texto simulando mensagem -->
+        <div id="chat-message" style="
+            display: block;
+            background: #fff;
+            color: #EA5A14;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: messageEntry 0.8s ease-in-out;">
+            clique em mim e Receba seu acesso
+        </div>
+
+        <!-- Botão de fechar -->
+        <button id="close-chatbot" style="
+            display: none; 
+            position: absolute; 
+            top: -10px; 
+            right: -10px; 
+            background: #FF4B4B; 
+            color: white; 
+            font-size: 14px; 
+            border: none; 
+            border-radius: 50%; 
+            width: 30px; 
+            height: 30px; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+            cursor: pointer;">
+            ✖
+        </button>
+
+        <!-- Imagem redonda do chatbot -->
+        <div id="chat-icon" style=" 
+            background-image: url('https://i.postimg.cc/Fsx23pZR/c3679308-68ad-4e0c-b2dc-9bc7bb63a725-removebg-preview.png');
+            background-size: cover;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            animation: float 3s infinite;">
+        </div>
+
+        <!-- Iframe do chatbot -->
+        <iframe id="chat-iframe" 
+            src="https://platform.zaia.app/embed/chat/33844" 
+            style="display: none; width: 400px; height: 600px; border: none; border-radius: 20px; margin-top: 10px;">
+        </iframe>
+    </div>
+
+    <style>
+        /* Animação de entrada da mensagem */
+        @keyframes messageEntry {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-10px);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Animação de flutuação para o chatbot */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+
+    <script>
+        // Elementos
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const chatIcon = document.getElementById('chat-icon');
+        const chatIframe = document.getElementById('chat-iframe');
+        const closeChatbot = document.getElementById('close-chatbot');
+        const chatMessage = document.getElementById('chat-message');
+
+        // Clique no ícone para abrir o chatbot
+        chatIcon.addEventListener('click', () => {
+            chatIcon.style.display = 'none'; // Esconde o ícone
+            chatIframe.style.display = 'block'; // Mostra o iframe
+            closeChatbot.style.display = 'block'; // Mostra o botão de fechar
+            chatMessage.style.display = 'none'; // Esconde a mensagem
+        });
+
+        // Clique no botão de fechar para esconder o chatbot
+        closeChatbot.addEventListener('click', () => {
+            chatIcon.style.display = 'block'; // Mostra o ícone
+            chatIframe.style.display = 'none'; // Esconde o iframe
+            closeChatbot.style.display = 'none'; // Esconde o botão de fechar
+            chatMessage.style.display = 'block'; // Mostra a mensagem novamente
+        });
+    </script>
+</body>
